@@ -15,12 +15,12 @@
     <div class="ship-wrapper">
         <div class="ship-item" v-for="info in shipData">
             <div class="img-wrapper">
-                <img class="ship-img" src="./img/11.jpg" alt="info.img">
+                <img class="ship-img" src="./img/12.jpg" alt="info.img">
             </div>
             <label class="ship-title">{{info.name}}</label>
-            <span class="price">{{info.price}}</span>
-            <!-- <span class="old-price">{{info.oldprice}}</span> -->
-            <button class="view-detail">查看详细</button>
+            <span class="price">{{Number(info.price)+30}}</span>
+            <span class="old-price">{{info.price}}</span>
+            <span class="size">{{info.size}}</span>
         </div>
     </div>
     <script src="./js/data.js"></script>
