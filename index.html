@@ -18,9 +18,9 @@
                 <img class="ship-img" src="./img/12.jpg" alt="info.img">
             </div>
             <label class="ship-title">{{info.name}}</label>
-            <span class="price" v-if="info.price">{{info.price}}</span>
-            <span class="price" v-if="!info.price">预定</span>
-            <span class="old-price" v-if="info.price">{{Number(info.price)+30}}</span>
+            <span class="price" v-if="info.price">￥{{info.price}}</span>
+            <span class="price" v-if="!info.price">询问代理</span>
+            <span class="old-price" v-if="info.price">￥{{Number(info.price)+30}}</span>
             <span class="size">{{info.size}}</span>
         </div>
     </div>
