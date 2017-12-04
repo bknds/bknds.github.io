@@ -39,6 +39,39 @@ body {
   margin: 40px 0;
   color: #fff;
 }
+.title-wrapper {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  top: 42%;
+  left: 52%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.title-wrapper .title-h1,
+.title-wrapper .title-h2,
+.title-wrapper .title-h3 {
+  color: #fff;
+  margin: 10px 0;
+}
+.title-wrapper .title-h1 {
+  font-size: 45px;
+}
+.title-wrapper .title-h2 {
+  font-size: 25px;
+}
+.title-wrapper .title-h3 {
+  font-size: 14px;
+}
+.footer-desc {
+  color: #fff;
+  display: block;
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  bottom: 80px;
+  font-size: 15px;
+}
 .swiper-slide .mask {
   padding: 5% 0;
   width: 90%;
@@ -115,37 +148,4 @@ body {
 }
 .slide-6 li span {
   float: right;
-}
-.title-wrapper {
-  width: 150px;
-  height: 150px;
-  position: absolute;
-  top: 42%;
-  left: 52%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
-.title-wrapper .title-h1,
-.title-wrapper .title-h2,
-.title-wrapper .title-h3 {
-  color: #fff;
-  margin: 10px 0;
-}
-.title-wrapper .title-h1 {
-  font-size: 45px;
-}
-.title-wrapper .title-h2 {
-  font-size: 25px;
-}
-.title-wrapper .title-h3 {
-  font-size: 14px;
-}
-.footer-desc {
-  color: #fff;
-  display: block;
-  width: 100%;
-  text-align: center;
-  position: absolute;
-  bottom: 80px;
-  font-size: 15px;
 }
