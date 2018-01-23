@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hiver U</title>
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/vue.min.js"></script>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <div class="ship-wrapper">
+        <div class="ship-item" v-for="info in shipData">
+            <div class="img-wrapper">
+                <img class="ship-img" src="./img/12.jpg" alt="info.img">
+            </div>
+            <label class="ship-title">{{info.name}}</label>
+            <span class="price" v-if="info.price">{{info.price}}</span>
+            <span class="price" v-if="!info.price">询问代理</span>
+            <span class="old-price" v-if="info.price">{{Number(info.price)+30}}</span>
+            <span class="size">{{info.size}}</span>
+        </div>
+    </div>
+    <script src="./js/data.js"></script>
+</body>
+
+</html>
