@@ -136,7 +136,7 @@
 
     <div class="search-wrap">
         <form name=floor onsubmit="bottomForm()" class="floor">
-            <input name="key" autocomplete="off" class="text" type="text" id="text">
+            <input name="key" autocomplete="off" class="text" type="text" id="text" onkeyup="keyUp(event)">
             <button type="submit" class="sub-btn">&#xe623;</button>
         </form>
         <ul id="list" class="back-list"></ul>
@@ -162,8 +162,8 @@
             lis.style.display = "block";
         }
 
-        txt.onkeyup = function (e) {
-            var e = event || window.event || arguments.callee.caller.arguments[0];
+        function keyUp(e) {
+            var e = window.event || arguments.callee.caller.arguments[0];
 
             if (e && e.keyCode !== 40 && e.keyCode !== 38) {
                 listNumber = -1;
@@ -200,7 +200,6 @@
             lis.children[listNumber].firstChild.classList.add('link-focus');
             txt.value = lis.children[listNumber].firstChild.textContent;
         }
-
     </script>
 </body>
 
