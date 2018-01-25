@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
     <title>BAIDU</title>
     <style>
         * {
@@ -33,7 +34,7 @@
         .floor {
             width: 80%;
             display: flex;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
             flex-direction: row;
             background: #17191d;
             border-radius: 60px;
@@ -121,26 +122,8 @@
         }
 
         @media (max-width:1200px) {
-            .floor {
-                border-radius: 200px;
-            }
             .floor .text {
-                height: 200px;
-                line-height: 200px;
-            }
-
-            .floor .sub-btn {
-                margin: 10px;
-                width: 180px;
-                height: 180px;
-                font-size: 100px;
-            }
-            .back-list li {
-                height: 120px;
-            }
-            .back-list li a {
-                line-height: 120px;
-                font-size: 40px;
+                font-size:15px;
             }
         }
     </style>
