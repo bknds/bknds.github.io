@@ -22,7 +22,7 @@ THE SOFTWARE.
 
 @angular/core@4.4.6 MIT
 
-pell@1.0.0 MIT
+pell@1.0.4 MIT
 The MIT License (MIT)
 
 Copyright (c) Jared Reich
@@ -112,8 +112,6 @@ own licenses; we recommend you read them, as their terms may differ from
 the terms above.
 
 
-@angular/http@4.4.6 MIT
-
 bootstrap@3.3.7 MIT
 The MIT License (MIT)
 
@@ -138,7 +136,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 
-sweetalert2@7.15.1 MIT
+sweetalert2@7.17.0 MIT
 The MIT License (MIT)
 
 Copyright (c) 2014 Tristan Edwards & Limon Monte
@@ -265,7 +263,7 @@ TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
-css-loader@0.28.10 MIT
+css-loader@0.28.11 MIT
 Copyright JS Foundation and other contributors
 
 Permission is hereby granted, free of charge, to any person obtaining
