@@ -1,4 +1,6 @@
+html,
 body {
+  width: 100%;
   overflow-x: hidden;
 }
 * {
@@ -173,10 +175,11 @@ body {
   }
   .banner-wrap {
     position: relative;
+    overflow: hidden;
     min-height: 160px;
   }
-  .banner-wrap .banner-bg-img {
-    width: 104%;
+  .banner-wrap o .banner-bg-img {
+    width: 100%;
   }
   .banner-wrap .title-01,
   .banner-wrap .title-02 {
