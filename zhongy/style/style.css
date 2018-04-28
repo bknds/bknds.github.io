@@ -173,6 +173,11 @@ body {
     height: 2px;
     background: #3f6442;
   }
+  .container-title {
+    margin: 25px 25% 10px 25%;
+    width: 50%;
+    font-size: 1.4em;
+  }
   .banner-wrap {
     position: relative;
     overflow: hidden;
@@ -226,5 +231,18 @@ body {
   }
   .page-bottom .display-block {
     display: block;
+  }
+  .table {
+    font-size: 12px;
+  }
+  .table th,
+  .table td {
+    vertical-align: middle !important;
+  }
+}
+@media (max-width: 320px) {
+  .title-03,
+  .title-04 {
+    display: none !important;
   }
 }

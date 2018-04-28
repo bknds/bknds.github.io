@@ -1,6 +1,7 @@
 @primary: #3f6442;
-html,body {
-    width:100%;
+html,
+body {
+    width: 100%;
     overflow-x: hidden;
 }
 
@@ -179,8 +180,8 @@ html,body {
 @media (max-width:450px) {
     .page-head {
         .logo {
-            margin:5px 0;
-            height:80%;
+            margin: 5px 0;
+            height: 80%;
         }
         .phone-number {
             margin: 0 15px;
@@ -190,12 +191,16 @@ html,body {
         height: 2px;
         background: @primary;
     }
+    .container-title {
+        margin: 25px 25% 10px 25%;
+        width: 50%;
+        font-size: 1.4em;
+    }
     .banner-wrap {
         position: relative;
         overflow: hidden;
         min-height: 160px;
-        o
-        .banner-bg-img {
+        o .banner-bg-img {
             width: 100%;
         }
         .title-01,
@@ -244,5 +249,19 @@ html,body {
         .display-block {
             display: block;
         }
+    }
+    .table {
+        font-size: 12px;
+        th,
+        td {
+            vertical-align: middle !important;
+        }
+    }
+}
+
+@media (max-width:320px) {
+    .title-03,
+    .title-04 {
+        display: none !important;
     }
 }
