@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Camera 相机</title>
+</head>
+
+<body>
+    <script src="https://wow.techbrood.com/libs/threejs/three.80.min.js"></script>
+    <script src="https://wow.techbrood.com/libs/jquery/jquery-1.11.1.min.js"></script>
+    <script src="./OrbitControls.js"></script>
+    
+    <div>
+        <canvas width=600 height=600 id="cnvs1" style="background-color:black"></canvas>
+    </div>
+    <script>
+     "use strict";
+
+        /**
+         *  Loads a list of textures.  If a callback function is provided, it is
+         *  called once after all textures are loaded.  This is used to load a
+         *  set of six textures to use with MeshFaceMaterial.
+         */
+        function loadTextures(textureURLs, callback) {
+            var loaded = 0;
+
+            function loadedOne() {
+                loaded++;
+                if (callback && loaded == textureURLs.length) {
+                    for (var i = 0; i < textureURLs; i++)
+                        textures[i].needsUpdate = true;
+                    callback();
+                }
+            }
+            var textures = [];
+            for (var i = 0; i < textureURLs.length; i++) {
+                var tex = THREE.ImageUtils.loadTexture(textureURLs[i], undefined, loadedOne);
+                textures.push(tex);
+            }
+            return textures;
+        }
+
+        /**
+         *  This page uses THREE.OrbitControls to let the user use the mouse to rotate
+         *  the view.
+         */
+        function setupDragAction(element, dragAction) {
+            function move() {
+                dragAction();
+            }
+
+            function down() {
+                document.addEventListener("mousemove", move, false);
+            }
+
+            function up() {
+                document.removeEventListener("mousemove", move, false);
+            }
+            element.addEventListener("mousedown", down, false);
+        }
+
+
+        /**
+         *  Sets up the first canvas.  This function is also used as a scope
+         *  to keep the scene, camera, controls, etc for this world separate
+         *  from those for the other two worlds.
+         *      World1 shows a cube with a cube map texture viewed from the
+         *  outside of the cube.  The textures are loaded as six separate
+         *  THREE.Texture objects, and a MeshFaceMaterial is used to apply
+         *  the textures to the six faces of the cube.  Each face uses a
+         *  MeshPhongMaterial, and the scene has a light to illuminate the
+         *  cube.
+         *      Note that this function returns true or false to indicate
+         *  whether it was possible to set up WebGL.  If not, no attempt
+         *  is made to set up the other two worlds.
+         */
+        function world1() {
+
+            var scene, camera, renderer; // Three.js rendering basics.
+
+            var cube; // The cube -- the only object in the scene.
+
+            var textureURLs = [ // URLs of the six faces of the cube map 
+                "./negx.jpg", // Note:  The order in which
+                "./negx.jpg", //   the images are listed is
+                "./negx.jpg", //   important.
+                "./negx.jpg",
+                "./negx.jpg",
+                "./negx.jpg"
+            ];
+
+            var controls; // The OrbitControls, used to let the user rotate the cube by mouse.
+
+            function render() {
+                controls.update(); // Apply any change in rotation from the controls.
+                renderer.render(scene, camera);
+            }
+
+            var theCanvas = document.getElementById("cnvs1");
+
+            if (!theCanvas || !theCanvas.getContext) {
+                console.log("Sorry, this page does support canvas graphics.");
+                return;
+            }
+            try {
+                if (window.WebGLRenderingContext) {
+                    renderer = new THREE.WebGLRenderer({
+                        canvas: theCanvas,
+                        antialias: true
+                    });
+                }
+            } catch (e) { }
+            if (!renderer) {
+                document.getElementById("message").innerHTML =
+                    "Sorry, WebGL is required but is not available.";
+                return false;
+            }
+
+            /* Set up the scene with a camera and light.  The light is attached to the camer
+               so that it always shines in the direction the camera is facing. */
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(65, theCanvas.width / theCanvas.height, 1, 100);
+            var light = new THREE.DirectionalLight();
+            light.position.set(0, 0, 1); // Shine along the z-axis in object coordinates, same direction camera faces.
+            camera.add(light);
+            scene.add(camera);
+            camera.position.x = -20;
+            camera.position.y = 0;
+            camera.position.z = 50;
+
+            /* Load the six image textures and create the six face materials. */
+            var textures = loadTextures(textureURLs, render);
+            var materials = [];
+            for (var i = 0; i < 6; i++) {
+                materials.push(new THREE.MeshPhongMaterial({
+                    color: "white",
+                    map: textures[i]
+                }));
+            }
+
+            /* Create a cube with the six textures on the six faces of the cube. */
+            cube = new THREE.Mesh(new THREE.CubeGeometry(1, 20, 20), new THREE.MeshFaceMaterial(materials));
+            cube.position.x = 5;
+            cube.position.y = 5;
+            cube.position.z = 5;
+            scene.add(cube);
+            
+            var cube1;
+            cube1 = new THREE.Mesh(new THREE.CubeGeometry(1, 20, 20), new THREE.MeshFaceMaterial(materials));
+            cube1.position.x = -5;
+            cube1.position.y = 5;
+            cube1.position.z = 5;
+            scene.add(cube1);
+
+            var cube2;
+            cube2 = new THREE.Mesh(new THREE.CubeGeometry(11, 1, 20), new THREE.MeshFaceMaterial(materials));
+            cube2.position.x = 0;
+            cube2.position.y = 15.5;
+            cube2.position.z = 5;
+            scene.add(cube2);
+
+            var cube3;
+            cube3 = new THREE.Mesh(new THREE.CubeGeometry(11, 1, 20), new THREE.MeshFaceMaterial(materials));
+            cube3.position.x = 0;
+            cube3.position.y = -5.5;
+            cube3.position.z = 5;
+            scene.add(cube3);
+
+            var cube4;
+            cube4 = new THREE.Mesh(new THREE.CubeGeometry(11, 22, 1), new THREE.MeshFaceMaterial(materials));
+            cube4.position.x = 0;
+            cube4.position.y = 5;
+            cube4.position.z = -5;
+            scene.add(cube4);
+
+            /* Add controls so the user can rotate the view with the mouse.
+               Add another mouse listener to call render when the mouse is dragged. */
+            controls = new THREE.OrbitControls(camera, theCanvas);
+            setupDragAction(theCanvas, render);
+
+            render();
+            return true;
+
+        } // end world1()
+
+        world1();
+    </script>
+</body>
+
+</html>
