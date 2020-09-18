@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
   <meta property="og:title" content="不可能是不可能的事。" />
   <meta property="og:type" content="不可能是不可能的事。" />
   <meta property="og:description" content="不可能是不可能的事。" />
@@ -11,23 +11,51 @@
 </head>
 
 <style>
-  p {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 15px;
-    font-weight: 400;
-    color: #9d9d9d;
+  body {
+    overflow: hidden;
   }
 
-  p span {
-    font-size: 12px;
+  .index_container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #fff;
+    margin-bottom: 0px;
+  }
+
+  .index_container video {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+  }
+
+  .index_info {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    width: 600px;
+    height: 400px;
+    background-image: url('./160040904142219.png');
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    margin: -200px 0 0 -300px;
   }
 </style>
 
 <body>
-  <p>不可能是不可能的事<span>。</span></p>
+  <div class="index_container">
+    <video autoplay preload="auto" loop="loop" class="inkIndex_video">
+      <source src="https://rescdn.qqmail.com/weread/cover/ink_index_video.mp4" type="video/mp4">
+    </video>
+    <div class="index_info"></div>
+  </div>
 </body>
 
 </html>
