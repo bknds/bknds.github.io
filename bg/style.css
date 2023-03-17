@@ -1,0 +1,104 @@
+body {
+  overflow: hidden;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+@font-face {font-family: "chu";
+  src:url('chuchen.ttf') format('truetype');
+}
+
+.chu {
+  font-family:"chu" !important;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  width: 600px;
+  height: 800px;
+  background-image: url(./bg.png);
+  background-size: 100% 100%;
+  background-position: -20px -20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.container::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  backdrop-filter: blur(90px);
+  z-index: 1;
+}
+
+.phone {
+  position: absolute;
+  width: 148px;
+  height: 274px;
+  transform: scale(2.5);
+  transform-origin: 0% 0%;
+  top: 40px;
+  left: 10px;
+  z-index: 100;
+}
+
+.phone::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 18px;
+  left: 17px;
+  right: 17px;
+  bottom: 20px;
+  background-image: url(./bg.png);
+  background-size: 100% 100%;
+  border-radius: 7px;
+  z-index: 1;
+}
+
+.phone::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url(./apple-iphone13mini-midnight-portrait.png);
+  background-size: 100% 100%;
+  z-index: 10;
+}
+
+.date {
+  display: block;
+  position: absolute;
+  top: 30px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 20;
+  color: #ddc2a3;
+  font-size: 12px;
+  transform: scale(.3);
+}
+
+.time {
+  display: block;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 20;
+  color: #ddc2a3;
+  font-size: 20px;
+}
