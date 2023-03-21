@@ -7,13 +7,44 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
-@font-face {font-family: "chu";
-  src:url('chuchen.ttf') format('truetype');
+
+@font-face {
+  font-family: "iconfont";
+  src: url('iconfont.ttf') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-dianchi:before {
+  content: "\e697";
+}
+
+.icon-xiangji:before {
+  content: "\e674";
+}
+
+.icon-shoudian:before {
+  content: "\e65e";
+}
+
+.icon-wifi:before {
+  content: "\e9cd";
+}
+
+@font-face {
+  font-family: "chu";
+  src: url('chuchen.ttf') format('truetype');
 }
 
 .chu {
-  font-family:"chu" !important;
-  font-style:normal;
+  font-family: "chu" !important;
+  font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -46,8 +77,8 @@ body {
   height: 274px;
   transform: scale(2.5);
   transform-origin: 0% 0%;
-  top: 40px;
-  left: 10px;
+  top: 20px;
+  left: 115px;
   z-index: 100;
 }
 
@@ -78,6 +109,40 @@ body {
   z-index: 10;
 }
 
+.bar {
+  display: flex;
+  flex-flow: row nowrap;
+  color: #FFF;
+  position: absolute;
+  top: 16px;
+  left: 0;
+  right: 0;
+  z-index: 22;
+  justify-content: space-between;
+  padding-left: 12px;
+  padding-right: 20px;
+}
+
+.bar span {
+  display: inline-block;
+  font-size: 12px;
+  transform: scale(.3);
+}
+
+.bar .iconfont {
+  position: relative;
+  font-size: 17px;
+  top: -1px;
+}
+
+.bar .icon-wifi {
+  left: 6px;
+}
+
+.bar .icon-dianchi {
+  right: 2px;
+}
+
 .date {
   display: block;
   position: absolute;
@@ -86,7 +151,7 @@ body {
   right: 0;
   text-align: center;
   z-index: 20;
-  color: #ddc2a3;
+  color: #fbca74;
   font-size: 12px;
   transform: scale(.3);
 }
@@ -99,6 +164,89 @@ body {
   right: 0;
   text-align: center;
   z-index: 20;
-  color: #ddc2a3;
+  color: #fbca74;
   font-size: 20px;
+}
+
+.bottom-icon {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 20;
+  color: #fbca74;
+}
+
+.bottom-icon .iconfont {
+  display: block;
+  width: 30px;
+  height: 30px;
+  background-color: rgba(236, 236, 236, 0.1);
+  backdrop-filter: blur(40px);
+  font-size: 12px;
+  color: #fff;
+  border-radius: 50%;
+  line-height: 30px;
+  text-align: center;
+  transform: scale(.5);
+}
+
+.line {
+  position: absolute;
+  bottom: 23px;
+  left: 50%;
+  display: block;
+  width: 40px;
+  height: 1px;
+  background-color: #fff;
+  border-radius: 20px;
+  z-index: 20;
+  transform: translate(-50%, 0);
+}
+
+.tex {
+  position: absolute;
+  bottom: 45px;
+  left: 50%;
+  color: #fff;
+  z-index: 100;
+  display: flex;
+  flex-flow: row nowrap;
+  transform: translate(-50%, 0);
+  letter-spacing: 2px;
+  font-style: italic;
+}
+
+.k4k {
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  border: 3px solid #fff;
+  border-radius: 5px;
+  z-index: 100;
+  display: flex;
+  flex-flow: row nowrap;
+  transform: translate(-50%, 0);
+}
+
+.k4k span {
+  display: inline-block;
+  text-align: center;
+  padding: 0px 20px;
+  font-weight: bold;
+}
+
+.k4k .t{
+  color: #FFF;
+  font-size: 12px;
+}
+
+.k4k .b{
+  background-color: #FFF;
+  color: #000;
+  font-size: 12px;
 }
